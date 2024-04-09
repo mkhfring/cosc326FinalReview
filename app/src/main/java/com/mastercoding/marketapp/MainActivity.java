@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
         recyclerView.setAdapter(myAdapter);
 
 
-        myAdapter.setClickListener(this);
+//        myAdapter.setClickListener(this);
 
 
 
