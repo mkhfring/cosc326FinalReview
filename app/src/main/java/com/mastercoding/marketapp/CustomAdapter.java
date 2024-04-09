@@ -1,5 +1,6 @@
 package com.mastercoding.marketapp;
 
+import android.database.DatabaseUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,7 +9,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.mastercoding.marketapp.databinding.ItemLayoutBinding;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +33,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View inflatedview = LayoutInflater.from(parent.getContext()).inflate(
+        ItemLayoutBinding inflatedview = DataBindingUtil.inflate(
+                LayoutInflater.from(parent.getContext()),
                 R.layout.item_layout,
                 parent,
                 false
@@ -40,9 +45,9 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Item item = itemList.get(position);
-        holder.imageView.setImageResource( item.getItemImg());
-        holder.description.setText(item.getItemDesc());
-        holder.title.setText(item.getItemName());
+        holder.itemLayoutBinding.imageview.setImageResource(item.getItemImg());
+        holder.itemLayoutBinding.titleTxt.setText(item.getItemName());
+        holder.itemLayoutBinding.titleTxt.setText(item.getItemDesc());
 
     }
 
@@ -52,15 +57,11 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        ImageView imageView;
-        TextView description;
-        TextView title;
-        public MyViewHolder(@NonNull View itemView) {
-            super(itemView);
-            imageView = itemView.findViewById(R.id.imageview);
-            description = itemView.findViewById(R.id.description_text);
-            title = itemView.findViewById(R.id.title_txt);
-            itemView.setOnClickListener(this);
+        ItemLayoutBinding itemLayoutBinding;
+
+        public MyViewHolder(ItemLayoutBinding itemLayoutBinding) {
+            super(itemLayoutBinding.getRoot());
+            this.itemLayoutBinding = itemLayoutBinding;
         }
 
         @Override
