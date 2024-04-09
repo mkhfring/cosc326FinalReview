@@ -65,7 +65,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
         @Override
         public void onClick(View view) {
-            Toast.makeText(view.getContext(), "Action", Toast.LENGTH_SHORT).show();
+            Item item = itemList.get(getAdapterPosition());
+            Toast.makeText(view.getContext(), "Action  " + item.itemName, Toast.LENGTH_SHORT).show();
 
         }
     }

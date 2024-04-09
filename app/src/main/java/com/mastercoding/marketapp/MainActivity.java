@@ -11,7 +11,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements ItemClickListener {
+public class MainActivity extends AppCompatActivity{
 
     // 1- AdapterView
     RecyclerView recyclerView;
@@ -60,11 +60,11 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
 
     }
 
-    @Override
-    public void onCLick(View v, int pos) {
-        Toast.makeText(this,
-                "You Choose: "+ itemList.get(pos).getItemName(),
-                Toast.LENGTH_SHORT).show();
-
-    }
+//    @Override
+//    public void onCLick(View v, int pos) {
+//        Toast.makeText(this,
+//                "You Choose: "+ itemList.get(pos).getItemName(),
+//                Toast.LENGTH_SHORT).show();
+//
+//    }
 }
