@@ -1,9 +1,27 @@
 package com.mastercoding.marketapp;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 // This class acting as model class for our recyclerview
 public class Item {
     int itemImg;
-    String itemName, itemDesc;
+    @Expose
+    String image;
+    @SerializedName("title")
+    @Expose
+    String itemName;
+    @SerializedName("description")
+    @Expose
+    String itemDesc;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public Item(int itemImg, String itemName, String itemDesc) {
         this.itemImg = itemImg;

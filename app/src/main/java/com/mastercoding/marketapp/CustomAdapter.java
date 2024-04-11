@@ -47,7 +47,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         Item item = itemList.get(position);
         holder.itemLayoutBinding.imageview.setImageResource(item.getItemImg());
         holder.itemLayoutBinding.titleTxt.setText(item.getItemName());
-        holder.itemLayoutBinding.titleTxt.setText(item.getItemDesc());
+        holder.itemLayoutBinding.descriptionText.setText(item.getItemDesc());
 
     }
 
